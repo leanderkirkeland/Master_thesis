@@ -1,2 +1,2 @@
 # Master_thesis
-The code used for my Master's Thesis
+The code used for my Master's Thesis.
