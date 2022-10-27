@@ -313,7 +313,7 @@ _ = model.fit(trainloader, epochs=1, validation_data=validloader, callbacks=[ten
 from google.colab import drive
 drive.mount('/gdrive')
 
-model_save_name = Transformer_64x64x32
+model_save_name = "Transformer_64x64x32"
 
-model.save(r"C:\Users\Leander\Skole\H2022\Transformer_64x64x32")
+model.save(model_save_name)
 
