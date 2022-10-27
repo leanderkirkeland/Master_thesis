@@ -234,17 +234,17 @@ test_x = []
 test_y = []
 
 for i in range(950):
-    data = xr.open_dataset(fr"C:/Users/Leander/Skole/H2022/Datasets/64x64x32/64x64x32{i}.nc")
+    data = xr.open_dataset(fr"Transformer/Datasets/64x64x32/64x64x32{i}.nc")
     train_x.append(data["n"])
     train_y.append(data["blob_labels"])
 
 for i in range(25):
-    data = xr.open_dataset(fr"C:/Users/Leander/Skole/H2022/Datasets/64x64x32/64x64x32{i+950}.nc")
+    data = xr.open_dataset(fr"Transformer/Datasets/64x64x32/64x64x32{i+950}.nc")
     valid_x.append(data["n"])
     valid_y.append(data["blob_labels"])
 
 for i in range(25):
-    data = xr.open_dataset(fr"C:/Users/Leander/Skole/H2022/Datasets/64x64x32/64x64x32{i+975}.nc")
+    data = xr.open_dataset(fr"Transformer/Datasets/64x64x32/64x64x32{i+975}.nc")
     test_x.append(data["n"])
     test_y.append(data["blob_labels"])
 
@@ -309,6 +309,11 @@ log_dir = fr"C:/Users/Leander/Skole/H2022/logs/fit/64x64x32_1epochtest"
 tensorboard_callback = tf.keras.callbacks.TensorBoard(log_dir=log_dir, histogram_freq=1)
 
 _ = model.fit(trainloader, epochs=1, validation_data=validloader, callbacks=[tensorboard_callback])
+
+from google.colab import drive
+drive.mount('/gdrive')
+
+model_save_name = Transformer_64x64x32
 
 model.save(r"C:\Users\Leander\Skole\H2022\Transformer_64x64x32")
 
